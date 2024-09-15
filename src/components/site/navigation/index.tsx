@@ -51,7 +51,7 @@ const Navigation = async ({ user }: Props) => {
           </Link>
         )}
         <Link
-          href={"https://github.com/vishwansh01/saas-website"}
+          href={"https://github.com/vishwansh01/saas"}
           className="bg-primary text-white md:p-2 md:px-4 md:rounded-md hover:bg-primary/80 text-[12px] sm:p-[4px] px-[4px] rounded-sm"
         >
           Github
