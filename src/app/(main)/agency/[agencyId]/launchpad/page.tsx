@@ -49,19 +49,20 @@ const LaunchPadPage = async ({ params, searchParams }: Props) => {
 
   if (searchParams.code) {
     if (!agencyDetails.connectAccountId) {
-      try {
-        const response = await stripe.oauth.token({
-          grant_type: "authorization_code",
-          code: searchParams.code,
-        });
-        await db.agency.update({
-          where: { id: params.agencyId },
-          data: { connectAccountId: response.stripe_user_id },
-        });
-        connectedStripeAccount = true;
-      } catch (error) {
-        console.log("🔴 Could not connect stripe account");
-      }
+      // try {
+      const response = await stripe.oauth.token({
+        grant_type: "authorization_code",
+        code: searchParams.code,
+      });
+      console.log("res", response);
+      await db.agency.update({
+        where: { id: params.agencyId },
+        data: { connectAccountId: response.stripe_user_id },
+      });
+      connectedStripeAccount = true;
+      // } catch (error) {
+      // console.log("🔴 Could not connect stripe account");
+      // }
     }
   }
 

@@ -25,7 +25,9 @@ export const ourFileRouter = {
     .onUploadComplete(() => {}),
   agencyLogo: f({ image: { maxFileSize: "4MB", maxFileCount: 1 } })
     .middleware(authenticateUser)
-    .onUploadComplete(() => {}),
+    .onUploadComplete(() => {
+      console.log("done");
+    }),
   media: f({ image: { maxFileSize: "4MB", maxFileCount: 1 } })
     .middleware(authenticateUser)
     .onUploadComplete(() => {}),
